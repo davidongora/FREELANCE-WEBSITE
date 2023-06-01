@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Freelance Jobs Site</title>
+  <link href="/YOUR_PATH/favicon.ico" rel="icon" type="image/x-icon" />
+  <!--<link rel="icon" href="favicon.ico" type="image/x-icon">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 5rem;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0062cc;
+      border-color: #0062cc;
+    }
+
+    .featurette-divider {
+      margin: 5rem 0;
+      border-top: 1px solid #007bff;
+    }
+
+    .featurette-heading {
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #007bff;
+    }
+
+    .featurette-image {
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .featurette-image-1 {
+      background-image: url('./daraja-tutorial/zoom.png');
+    }
+
+    .featurette-image-2 {
+      background-image: url('./daraja-tutorial/zoom.png');
+    }
+
+    .featurette-image-3 {
+      background-image: url('./daraja-tutorial/worker.jpeg');
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">Find Your Next Freelance Job</h1>
+          <img src="logo.png" alt="Freelance Jobs" width="200">
+          <p class="text-center">Join our platform and start bidding on jobs. Open to everyone, including high school students!</p>
+          <div class="text-center">
+            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#registerModal">Register</button>
+            <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#loginModal">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Find the best jobs for you</h2>
+        <p class="lead">We have a wide variety of jobs to choose from, so you can find the one that's perfect for your skills and interests.</p>
+      </div>
+      <div class="col-md-5 featurette-image featurette-image-1"></div>
+    </div>
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Bid on jobs and earn money</h2>
+        <p class="lead">With our bidding system, you can compete with other freelancers and earn money for your work. Whether you're a professional or a high school student looking to showcase your skills, there are opportunities for everyone.</p>
+      </div>
+      <div class="col-md-5 order-md-1 featurette-image featurette-image-2"></div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Get paid quickly and easily</h2>
+        <p class="lead">We offer a variety of payment options, including MPESA, so you can get paid quickly and easily for your completed projects.</p>
+      </div>
+      <div class="col-md-5 featurette-image featurette-image-3"></div>
+    </div>
+
+    <hr class="featurette-divider">
+  </div>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Login</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form action="login.php" method="POST">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter password" required>
+            </div>
+            <div class="form-group form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Remember me
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Register</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form action="reg.php" method="POST">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+            <footer class="page-footer font-small bg-light pt-4">
+            <div class="container-fluid text-center text-md-left">
+              <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                  <h5>Subscribe to our newsletter</h5>
+                  <p>Get the latest news and updates from Freelance Jobs</p>
+                  <form>
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Enter your email address">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                  </form>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                  <h5>Follow us</h5>
+<ul class="list-unstyled">
+  <li>
+    <a href="Twitter.com"><i class="fab fa-twitter"></i> Twitter</a>
+  </li>
+  <li>
+    <a href="Facebook.com"><i class="fab fa-facebook"></i> Facebook</a>
+  </li>
+  <li>
+    <a href="instagram.com"><i class="fab fa-instagram"></i> Instagram</a>
+  </li>
+</ul>
+
+                  </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                  <h5>Categories</h5>
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#">Web Development</a>
+                    </li>
+                    <li>
+                      <a href="#">Graphic Design</a>
+                    </li>
+                    <li>
+                      <a href="#">Writing</a>
+                    </li>
+                    <li>
+                      <a href="#">Digital Marketing</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid text-center text-md-left">
+              <div class="row">
+                <div class="col-md-12">
+                  <p>&copy; 2023 Freelance Jobs. All rights reserved.</p>
+                </div>
+              </div>
+            </div>
+            </footer>
+            </body>
+            </html>
+            
+   
