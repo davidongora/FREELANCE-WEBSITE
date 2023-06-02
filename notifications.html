@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOBS ZETU.KE</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="briefcase-outline"></ion-icon>
+                        </span>
+                        <span class="title">JOBS ZETU.KE</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Dashboard.php">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="jobs.html">
+                        <span class="icon">
+                            <ion-icon name="briefcase-outline"></ion-icon>
+                        </span>
+                        <span class="title">Jobs</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Completed</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="notifications.html">
+                    <span class="icon">
+                        <ion-icon name="notifications-outline"></ion-icon>
+                      </span>
+                      <span class="title">Notifications</span>
+                      <span id="badge" class="badge rounded-circle bg-danger">0</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Help.html">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+              <!--  <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+-->
+                <li>
+                    <a href="logout.php">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <a href="profile.php">
+                        <img src="assets/imgs/customer01.jpg" alt="">
+                    </a>
+                </div>
+                </div>
+
+            <!-- ======================= Cards ================== -->
+            <style>
+                .notification-card {
+                  padding: 20px;
+                  margin-bottom: 10px;
+                  border: 1px solid #dee2e6;
+                  border-radius: 4px;
+                  background-color: #f8f9fa;
+                }
+              </style>
+            </head>
+            
+            <body>
+              <div class="container mt-5">
+                <h1>Notifications</h1>
+            
+                <div id="notifications-container">
+                  <!-- Notification cards will be dynamically added here -->
+                </div>
+              </div>
+            
+              <script>
+                let notificationCount = 0;
+            
+                // Function to generate a random notification
+                function generateNotification() {
+                  const notificationsContainer = document.getElementById('notifications-container');
+                  const badge = document.getElementById('badge');
+            
+                  // Generate a random message for the notification
+                  const messages = [
+                    'New job opportunity available. Apply now!',
+                    'Urgent job request. Grab it before it\'s gone!',
+                    'Exciting job offer just arrived. Take action!',
+                    'New freelance gig up for grabs. Don\'t miss out!'
+                  ];
+                  const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+                  // Create the notification card element
+                  const notificationCard = document.createElement('div');
+                  notificationCard.classList.add('notification-card');
+                  notificationCard.textContent = randomMessage;
+            
+                  // Append the notification card to the notifications container
+                  notificationsContainer.appendChild(notificationCard);
+            
+                  // Update the notification count and badge
+                  notificationCount++;
+                  badge.textContent = notificationCount;
+            
+                  // Scroll to the bottom of the notifications container
+                  notificationsContainer.scrollTop = notificationsContainer.scrollHeight;
+                }
+            
+                // Generate a new notification every 3 seconds (adjust as needed)
+                setInterval(generateNotification, 3000);
+              </script>
+            </body>
+            
+            </html>
+
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
