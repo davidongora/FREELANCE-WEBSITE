@@ -8,6 +8,7 @@
     <title>JOBS ZETU.KE</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>script.js</script>
 
 </head>
 
@@ -27,7 +28,7 @@
                 </li>
 
                 <li>
-                    <a href="Dashboard.html">
+                    <a href="Dashboard.php">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -36,7 +37,7 @@
                 </li>
 
                 <li>
-                    <a href="jobs.html">
+                    <a href="jobs.php">
                         <span class="icon">
                             <ion-icon name="briefcase-outline"></ion-icon>
                         </span>
@@ -59,15 +60,6 @@
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
                         <span class="title">Activate</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="jobs.php">
-                        <span class="icon">
-                            <ion-icon name="briefcase-outline"></ion-icon>
-                        </span>
-                        <span class="title">Jobs</span>
                     </a>
                 </li>
 
@@ -208,25 +200,33 @@
   </div>
 
   <div class="col-md-6">
-    <div class="card mb-4">
-      <div class="card-body">
-        <h5 class="card-title">Job Title 3</h5>
-        <p class="card-text">Job Description 3</p>
-        <p class="card-text">Price: $100</p>
-        <div id="timer3">00:00</div>
-        <button class="btn btn-primary bid-button">Bid</button>
-      </div>
-      <div class="card-footer d-flex justify-content-between">
-        <button class="btn btn-success bid-success" style="display: none;">Successfully Bided</button>
-        <div>
-          <button class="btn btn-secondary unbid-button" style="display: none;">Unbid</button>
-          <button class="btn btn-secondary ok-button" style="display: none;">Submit</button>
-        </div>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Job Title 3</h5>
+      <p class="card-text">Job Description 3</p>
+      <p class="card-text">Price: $100</p>
+      <div id="timer3">00:00</div>
+      <button class="btn btn-primary bid-button" data-timer-id="timer3">Bid</button>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <button class="btn btn-success bid-success" style="display: none;">Successfully Bided</button>
+      <div>
+        <button class="btn btn-secondary unbid-button" style="display: none;">Unbid</button>
+        <button class="btn btn-secondary ok-button" style="display: none;">Submit</button>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
+<script>
+  function setStorageItem(key, value) {
+    localStorage.setItem(key, value);
+  }
+
+  function getStorageItem(key) {
+    return localStorage.getItem(key);
+  }
+
   var timers = {
     timer1: {
       duration: 60,
@@ -247,7 +247,7 @@
     button.addEventListener('click', function() {
       var timerId = this.dataset.timerId;
       var timer = timers[timerId];
-      var startTime = parseInt(localStorage.getItem(timerId)) || new Date().getTime();
+      var startTime = parseInt(getStorageItem(timerId)) || new Date().getTime();
       var duration = timer.duration;
       var timerElement = timer.element;
 
@@ -261,10 +261,11 @@
         var elapsedTime = Math.floor((currentTime - startTime) / 1000);
         var remainingTime = duration - elapsedTime;
 
-        if (remainingTime < 0) {
+        if (remainingTime <= 0) {
           clearInterval(timerInterval);
           timerElement.textContent = "Time Elapsed";
           bidButton.disabled = true;
+          setStorageItem(timerId, ""); // Remove the start time from localStorage when time elapses
         } else {
           var minutes = Math.floor(remainingTime / 60);
           var seconds = remainingTime % 60;
@@ -273,24 +274,21 @@
           seconds = seconds < 10 ? "0" + seconds : seconds;
 
           timerElement.textContent = minutes + ":" + seconds;
+
+          // Update the start time for accurate countdown
+          startTime = currentTime - (elapsedTime * 1000);
+          setStorageItem(timerId, startTime.toString()); // Store the corrected start time in localStorage
         }
       }
 
       updateTimer();
 
       window.onbeforeunload = function() {
-        localStorage.setItem(timerId, startTime);
+        setStorageItem(timerId, startTime.toString());
       };
     });
   });
 </script>
-
-
-</div>
-
-
-
-
 
                 <!--<div class="col-md-6">
                   <div class="card mb-4">
