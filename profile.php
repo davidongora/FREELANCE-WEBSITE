@@ -37,38 +37,11 @@
                 </li>
 
                 <li>
-                    <a href="Dashboard.html">
+                    <a href="Dashboard.php">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
                         <span class="title">Dashboard</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="jobs.html">
-                        <span class="icon">
-                            <ion-icon name="briefcase-outline"></ion-icon>
-                        </span>
-                        <span class="title">Jobs</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Completed</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="home.php">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Activate</span>
                     </a>
                 </li>
 
@@ -91,27 +64,55 @@
                 </li>
 
                 <li>
+                    <a href="home.php">
+                        <span class="icon">
+                        <ion-icon name="card-outline"></ion-icon>                        </span>
+                        <span class="title">Activate</span>
+                    </a>
+                </li>
+
+                
+                <li>
                     <a href="submit.html">
                         <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
+                        <ion-icon name="file-tray-full-outline"></ion-icon>
                         </span>
                         <span class="title">Submit</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="notifications.html">
-                        <span class="icon">
-                            <ion-icon name="notifications-outline"></ion-icon>
-                        </span>
-                        <span class="title">Notifications</span>
-                    </a>
-                </li>
+  <a href="notifications.html">
+    <span class="icon">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </span>
+    <span class="title">Notifications</span>
+    <span class="badge">3</span> <!-- Add the badge element here -->
+  </a>
+</li>
+
+<style>
+  .badge {
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-left: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+  }
+</style>
+
+
 
                 <li>
-                    <a href="#">
+                    <a href="withdraw.php">
                         <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
+                        <ion-icon name="cash-outline"></ion-icon>
                         </span>
                         <span class="title">Withdraw</span>
                     </a>

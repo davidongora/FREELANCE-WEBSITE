@@ -58,6 +58,75 @@
     .featurette-image-3 {
       background-image: url('./daraja-tutorial/worker.jpeg');
     }
+
+    .header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 5rem;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0062cc;
+      border-color: #0062cc;
+    }
+
+    .featurette-divider {
+      margin: 5rem 0;
+      border-top: 1px solid #007bff;
+    }
+
+    .featurette-heading {
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #007bff;
+    }
+
+    .featurette-image {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Additional styles to enlarge the image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+    .featurette-image-1 {
+      background-image: url('./daraja-tutorial/zoom.png');
+    }
+
+    .featurette-image-2 {
+      background-image: url('./daraja-tutorial/zoom.png');
+    }
+
+    .featurette-image-3 {
+      background-image: url('./daraja-tutorial/worker.jpeg');
+    }
+    
+    .job-card {
+      background-color: #f8f9fa;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .job-card img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .job-card .card-body {
+      padding: 0;
+    }
   </style>
 </head>
 <body>
@@ -66,7 +135,7 @@
       <div class="row">
         <div class="col-md-12">
           <h1 class="text-center">Find Your Next Freelance Job</h1>
-          <img src="logo.png" alt="Freelance Jobs" width="200">
+          <img src="worker.png" alt="Freelance Jobs" width="200">
           <p class="text-center">Join our platform and start bidding on jobs. Open to everyone, including high school students!</p>
           <div class="text-center">
             <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#registerModal">Register</button>
@@ -86,10 +155,51 @@
         <h2 class="featurette-heading">Find the best jobs for you</h2>
         <p class="lead">We have a wide variety of jobs to choose from, so you can find the one that's perfect for your skills and interests.</p>
       </div>
-      <div class="col-md-5 featurette-image featurette-image-1"></div>
+      <div class="col-md-5 featurette-image featurette-image-1">
+        <img src="worker.jpeg" alt="Feature Image">
+      </div>
     </div>
-    <hr class="featurette-divider">
+</div>
 
+    <hr class="featurette-divider">
+    <div class="container">
+     
+      <!-- Jobs section -->
+      
+        <h2 class="text-center">Latest Freelance Jobs</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="job-card">
+              <img src="job1.jpg" alt="Job 1">
+              <div class="card-body">
+                <h5 class="card-title">Job Title 1</h5>
+                <p class="card-text">Job description goes here.</p>
+                <a href="#" class="btn btn-primary">Apply</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="job-card">
+              <img src="job2.jpg" alt="Job 2">
+              <div class="card-body">
+                <h5 class="card-title">Job Title 2</h5>
+                <p class="card-text">Job description goes here.</p>
+                <a href="#" class="btn btn-primary">Apply</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="job-card">
+              <img src="job3.jpg" alt="Job 3">
+              <div class="card-body">
+                <h5 class="card-title">Job Title 3</h5>
+                <p class="card-text">Job description goes here.</p>
+                <a href="" class="btn btn-primary">Apply</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
         <h2 class="featurette-heading">Bid on jobs and earn money</h2>
