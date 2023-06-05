@@ -215,7 +215,7 @@
       <h5 class="card-title">Job Title 3</h5>
       <p class="card-text">Job Description 3</p>
       <p class="card-text">Price: $100</p>
-      <div id="timer3">00:00</div>
+      <div id="timer3"></div>
       <button class="btn btn-primary bid-button" data-timer-id="timer3">Bid</button>
     </div>
     <div class="card-footer d-flex justify-content-between">

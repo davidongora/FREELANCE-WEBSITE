@@ -5,8 +5,8 @@ if(isset($_POST['submit'])){
   date_default_timezone_set('Africa/Nairobi');
 
   # access token
-  $consumerKey = 'nk16Y74eSbTaGQgc9WF8j6FigApqOMWr'; //Fill with your app Consumer Key
-  $consumerSecret = '40fD1vRXCq90XFaU'; // Fill with your app Secret
+  $consumerKey = 'wiTJX5ZA01jps4BiDBwGYmP6QYBHGOqj'; //Fill with your app Consumer Key
+  $consumerSecret = 'OwduBPcJC0gd2Vw8'; // Fill with your app Secret
 
   # define the variales
   # provide the following details, this part is found on your test credentials on the developer account
@@ -21,6 +21,15 @@ if(isset($_POST['submit'])){
     $Amount this is the total invoiced amount, Any amount here will be 
     actually deducted from a clients side/your test phone number once the PIN has been entered to authorize the transaction. 
     for developer/test accounts, this money will be reversed automatically by midnight.
+    *** Authorization Request in PHP ***|
+ 
+$ch = curl_init('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials');
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+  'Authorization: Basic ' . base64_encode('YOUR_APP_CONSUMER_KEY:YOUR_APP_CONSUMER_SECRET')
+]);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+$response = curl_exec($ch);
+echo json_decode($response);
   */
   
    $PartyA = $_POST['phone']; // This is your phone number, 
