@@ -186,7 +186,7 @@ $Email = $_POST['Email'];
 $Password = $_POST['Password'];
 
 // Update user details in the "members" table
-$sql = "UPDATE members SET name='$Name', email='$Email', Password='$Password' WHERE MemId = '$user_id'"; 
+$sql = "UPDATE users SET name='$Name', email='$Email', Password='$Password' WHERE Id = '$user_id'"; 
 
 if ($conn->query($sql) === TRUE) {
     echo "Profile updated successfully!";
@@ -195,7 +195,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 // Retrieve records from the "members" table
-$sql = "SELECT * FROM members";
+$sql = "SELECT * FROM users";
 $result = $conn->query($sql);
 
 // Output table structure
