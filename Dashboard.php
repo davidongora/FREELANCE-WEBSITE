@@ -61,7 +61,7 @@
 
                 
                 <li>
-                    <a href="submit.html">
+                    <a href="submit.php">
                         <span class="icon">
                         <ion-icon name="file-tray-full-outline"></ion-icon>
                         </span>
@@ -161,7 +161,7 @@
                 <div class="card">
                     <div>
                         <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="cardName">Daily Jobs</div>
                     </div>
 
                     <div class="iconBx">
@@ -172,7 +172,7 @@
                 <div class="card">
                     <div>
                         <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
+                        <div class="cardName">Members</div>
                     </div>
 
                     <div class="iconBx">
@@ -181,10 +181,104 @@
                 </div>
 
                 <div class="card">
+                <div>
+    <div class="numbers bg-secondary">Account Status</div>
+    <div class="cardName text-danger">Not Active</div>
+    <button class="btn btn-primary mt-3" onclick="activateAccount()">Activate</button>
+</div>
+
+<script>
+    function activateAccount() {
+        // Redirect to home.php
+        window.location.href = "home.php";
+    }
+</script>
+
+                    <div class="iconBx">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <?php
+// Establish a database connection
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$database = "freelance";
+
+$conn = mysqli_connect($hostname, $username, $password, $database);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Retrieve the number of submissions for the specific user
+$userID = 1; // Replace 1 with the actual user ID
+$sql = "SELECT COUNT(*) AS totalSubmissions FROM submission_table WHERE user_id = $userID";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$totalSubmissions = $row['totalSubmissions'];
+
+// Close the database connection
+mysqli_close($conn);
+?>
+
+<div class="card">
+    <div>
+        <div class="numbers"><?php echo $totalSubmissions; ?></div>
+        <div class="cardName">Submitted</div>
+    </div>
+</div>
+
+
+                    <div class="iconBx">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
+                </div>
+
+
+<?php
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$database = "freelance";
+
+// Create a database connection
+$conn = mysqli_connect($hostname, $username, $password, $database);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Retrieve the balance from the M-Pesa table
+$sql = "SELECT balance FROM mpesa";
+$result = mysqli_query($conn, $sql);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    // Fetch the balance value
+    $row = mysqli_fetch_assoc($result);
+    $balance = $row['balance'];
+
+    // Display the balance in the HTML element
+    echo '<div class="card">';
+    echo '<div>';
+    echo '<div class="numbers">' . $balance . '</div>';
+    echo '<div class="cardName">Balance</div>';
+    echo '</div>';
+    echo '</div>';
+} else {
+    echo "Error: Unable to retrieve balance.";
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
+
+
+
+                <!--<div class="card">
                     <div>
                         <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
-                    </div>
+                        <div class="cardName">Balance</div>
+                    </div>-->
 
                     <div class="iconBx">
                         <ion-icon name="chatbubbles-outline"></ion-icon>
@@ -193,7 +287,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">KSHS7,842</div>
+                        <div class="numbers">KSHS 0</div>
                         <div class="cardName">Earning</div>
                     </div>
 
