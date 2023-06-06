@@ -1,9 +1,9 @@
 {
-    "name": "myvendor/my-package-name",
+    "name": "davidongora/datetime-utils",
     "require": {
       "php": "^8.1.4",
       "some/package": "^1.0",
-      "myvendor/my-package-name": "1.0.0"
+      "davidongora/datetime-utils": "1.0.0"
     },
     "repositories": [
       {

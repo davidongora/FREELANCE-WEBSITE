@@ -96,6 +96,21 @@
     width: 20px;
     height: 20px;
   }
+
+ 
+    .container1 {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 0 20px;
+          }
+      
+          h1, h2 {
+            margin-top: 30px;
+          }
+      
+          ol, ul {
+            margin-left: 20px;
+          }
 </style>
 
 
