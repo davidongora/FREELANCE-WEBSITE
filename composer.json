@@ -1,6 +1,14 @@
 {
     "require": {
-        "php": "^7.4",
-        "some/package": "^1.0"
-    }
-}
+      "php": "^8.1.4",
+      "some/package": "^1.0",
+      "vendor-name/package-name": "1.0.0"
+    },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/Davidongora/FREELANCE-WEBSITE.git"
+      }
+    ]
+  }
+  
