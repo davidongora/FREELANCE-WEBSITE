@@ -2,7 +2,7 @@
 /vendor/
 
 # Ignore composer lock file
-composer.lock
+#composer.lock
 
 # Ignore IDE files
 .idea/
