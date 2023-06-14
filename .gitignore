@@ -1,0 +1,9 @@
+# Ignore vendor directory
+/vendor/
+
+# Ignore composer lock file
+composer.lock
+
+# Ignore IDE files
+.idea/
+.vscode/

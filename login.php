@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Prepare the SQL statement to retrieve user data
-  $sql = "SELECT * FROM members WHERE email = '$email' AND password = '$password'";
+  $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
   $result = $conn->query($sql);
 
   // Check if the query was successful and if a matching user was found
@@ -31,12 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['email'] = $email; // Store the email in the session
 
     // Redirect the user to the home page or any other desired page
-    header('Location: Dashboard.html');
+    header('Location: Dashboard.php');
     exit;
   } else {
     // Authentication failed
     echo "<script>alert('Invalid email or password');</script>";
-    echo "<script>window.location.href = 'index.html';</script>";
+    echo "<script>window.location.href = 'login.php';</script>";
+    
     exit;
   }
 

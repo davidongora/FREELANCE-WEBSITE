@@ -1,155 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Freelance Jobs Site</title>
-  <link href="/YOUR_PATH/favicon.ico" rel="icon" type="image/x-icon" />
-  <!--<link rel="icon" href="favicon.ico" type="image/x-icon">-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
-    .header {
-      background-color: #007bff;
-      color: #fff;
-      padding: 5rem;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background-color: #007bff;
-      border-color: #007bff;
-    }
-
-    .btn-primary:hover {
-      background-color: #0062cc;
-      border-color: #0062cc;
-    }
-
-    .featurette-divider {
-      margin: 5rem 0;
-      border-top: 1px solid #007bff;
-    }
-
-    .featurette-heading {
-      font-weight: 500;
-      line-height: 1;
-      margin-bottom: 1rem;
-      color: #007bff;
-    }
-
-    .featurette-image {
-      height: 500px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .featurette-image-1 {
-      background-image: url('./daraja-tutorial/zoom.png');
-    }
-
-    .featurette-image-2 {
-      background-image: url('./daraja-tutorial/zoom.png');
-    }
-
-    .featurette-image-3 {
-      background-image: url('./daraja-tutorial/worker.jpeg');
-    }
-    
-    .job-card {
-      background-color: #f8f9fa;
-      border: 1px solid #ced4da;
-      border-radius: 4px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .job-card img {
-      width: 100%;
-      height: auto;
-    }
-    
-    .job-card .card-body {
-      padding: 0;
-    }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <!-- header content here -->
-  </header>
-
-
-  <div class="container">
-    <hr class="featurette-divider">
-    
-    <!-- Jobs section -->
-    <section>
-      <h2 class="text-center">Latest Freelance Jobs</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="job-card">
-            <img src="job1.jpg" alt="Job 1">
-            <div class="card-body">
-              <h5 class="card-title">Job Title 1</h5>
-              <p class="card-text">Job description goes here.</p>
-              <a href="#" class="btn btn-primary">Apply</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="job-card">
-            <img src="job2.jpg" alt="Job 2">
-            <div class="card-body">
-              <h5 class="card-title">Job Title 2</h5>
-              <p class="card-text">Job description goes here.</p>
-              <a href="#" class="btn btn-primary">Apply</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="job-card">
-            <img src="job3.jpg" alt="Job 3">
-            <div class="card-body">
-              <h5 class="card-title">Job Title 3</h5>
-              <p class="card-text">Job description goes here.</p>
-              <a href="" class="btn btn-primary">Apply</a>
-            </div>
-          </div>
-        </div>
+<div class="container">
+  <h1>Submit Page</h1>
+  <form action="submit.php" method="POST" enctype="multipart/form-data">
+    <p>Upload your documents by selecting or dropping them here:</p>
+    <div class="drop-area" id="fileDropArea">
+      <i class="bi bi-file-earmark-plus fs-1 mb-3"></i>
+      <p>Drag and drop files here or click to upload.</p>
+      <input type="file" id="fileInput" name="file" multiple>
+    </div>
+    <div id="loader" class="d-none">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
-    </section>
-    
-    <hr class="featurette-divider">
-
-    <!-- Featurette sections -->
-    <div class="row featurette">
-      <!-- Featurette 1 content here -->
+      <p>Uploading document...</p>
     </div>
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <!-- Featurette 2 content here -->
+    <div id="successMessage" class="alert alert-success mt-3 d-none">
+      Documents uploaded successfully!
     </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <button id="removeButton" class="btn btn-danger mt-3 d-none">Remove Document</button>
+    <div id="timer" class="alert alert-warning mt-3 d-none"></div>
+  </form>
+</div>
 
-    <hr class="featurette-divider">
+<script>
+  const fileDropArea = document.getElementById('fileDropArea');
+  const fileInput = document.getElementById('fileInput');
+  const successMessage = document.getElementById('successMessage');
+  const loader = document.getElementById('loader');
+  const removeButton = document.getElementById('removeButton');
+  const timer = document.getElementById('timer');
 
-    <div class="row featurette">
-      <!-- Featurette 3 content here -->
-    </div>
+  let timerInterval;
 
-    <hr class="featurette-divider">
-  </div>
+  fileDropArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    fileDropArea.classList.add('border-primary');
+  });
 
-  <!-- Login and Register Modals -->
-  <!-- Modals code here -->
+  fileDropArea.addEventListener('dragleave', () => {
+    fileDropArea.classList.remove('border-primary');
+  });
 
-  <!-- Footer -->
-  <footer class="page-footer font-small bg-light pt-4">
-    <!-- Footer content here -->
-  </footer>
-</body>
-</html>
+  fileDropArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    fileDropArea.classList.remove('border-primary');
+    handleFiles(e.dataTransfer.files);
+  });
+
+  fileInput.addEventListener('change', () => {
+    handleFiles(fileInput.files);
+  });
+
+  function handleFiles(files) {
+    // Upload logic here
+    // Replace the following with your actual upload functionality
+
+    // Display loader
+    loader.classList.remove('d-none');
+
+    // Simulating upload delay
+    setTimeout(() => {
+      // Hide loader
+      loader.classList.add('d-none');
+
+      // Display success message
+      successMessage.classList.remove('d-none');
+
+      // Show remove button
+      removeButton.classList.remove('d-none');
+    }, 2000);
+  }
+
+  removeButton.addEventListener('click', () => {
+    // Remove uploaded document
+    removeDocument();
+
+    // Hide remove button and messages
+    removeButton.classList.add('d-none');
+    successMessage.classList.add('d-none');
+  });
+
+  function removeDocument() {
+    // Remove logic here
+    // Replace with your actual logic to remove the uploaded document
+
+    // Hide success message
+    successMessage.classList.add('d-none');
+  }
+</script>

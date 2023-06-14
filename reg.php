@@ -7,7 +7,7 @@ $database = "freelance";
 // Create a database connection
 $conn = mysqli_connect($hostname, $username, $password, $database);
 if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Retrieve form data
@@ -16,15 +16,21 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // Insert data into the database
-$sql = "INSERT INTO members (name,email, password) VALUES ('$name', '$email', '$password')";
+$sql = "INSERT INTO users (username, email, password, balance) VALUES ('$name', '$email', '$password', 0)";
 if (mysqli_query($conn, $sql)) {
- // echo "Registration successful!";
-  header('Location: re.html');
-  echo "Registration successful!
-  Now login to verify";
+    // Registration successful
+    echo "Registration successful! \n you now need to login";
+    header('Location: index.html');
 } else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  header('Location: index.html');
+    // Check if the error message contains "Duplicate entry" indicating that the email is already registered
+    if (strpos(mysqli_error($conn), "Duplicate entry") !== false) {
+        echo '<script>alert("Email is already registered!");</script>';
+        echo '<script>window.location.href = "Reg.php";</script>';
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo '<script>alert("An error occurred during registration.");</script>';
+        echo '<script>window.location.href = "Reg.php";</script>';
+    }
 }
 
 // Close the database connection

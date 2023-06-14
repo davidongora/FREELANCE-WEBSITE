@@ -55,7 +55,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="completed.php">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -73,7 +73,7 @@
 
                 
                 <li>
-                    <a href="submit.html">
+                    <a href="submit.php">
                         <span class="icon">
                         <ion-icon name="file-tray-full-outline"></ion-icon>
                         </span>
@@ -202,7 +202,7 @@
         // Retrieve user details from the "members" table
         $user_id = 1; // Assuming the user ID is 1, you can change it dynamically based on the logged-in user
 
-        $sql = "SELECT * FROM members WHERE MemId = '$user_id'";
+        $sql = "SELECT * FROM users WHERE Id = '$user_id'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -217,7 +217,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Password</th>
-            <th>MemId</th>
+            <th>Id</th>
         </tr>
         <tr>
             <td><?php echo $row['Name']; ?></td>
@@ -239,7 +239,7 @@
 </script>
 
             </td>
-            <td><?php echo $row['MemId']; ?></td>
+            <td><?php echo $row['Id']; ?></td>
         </tr>
     </table>
 </div>

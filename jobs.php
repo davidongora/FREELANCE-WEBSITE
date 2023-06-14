@@ -96,6 +96,21 @@
     width: 20px;
     height: 20px;
   }
+
+ 
+    .container1 {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 0 20px;
+          }
+      
+          h1, h2 {
+            margin-top: 30px;
+          }
+      
+          ol, ul {
+            margin-left: 20px;
+          }
 </style>
 
 
@@ -163,72 +178,36 @@
             <!-- ================ Order-->
             <!-- ================ Order Details List ================= -->
             <div class="container mt-4">
-              <h2>Available Jobs</h2>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Available Jobs</li>
-                </ol>
-              </nav>
-              <div class="row">
-  <div class="col-md-6">
-    <div class="card mb-4">
-      <div class="card-body">
-        <h5 class="card-title">Job Title 1</h5>
-        <p class="card-text">Job Description 1</p>
-        <p class="card-text">Price: $50</p>
-        <div id="timer1">00:00</div>
-        <button class="btn btn-primary bid-button">Bid</button>
-      </div>
-      <div class="card-footer d-flex justify-content-between">
-        <button class="btn btn-success bid-success" style="display: none;">Successfully Bided</button>
-        <div>
-          <button class="btn btn-secondary unbid-button" style="display: none;">Unbid</button>
-          <button class="btn btn-secondary ok-button" style="display: none;">Submit</button>
+  <h2>Available Jobs</h2>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Available Jobs</li>
+    </ol>
+  </nav>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Job Title 1</h5>
+          <p class="card-text">Job Description 1</p>
+          <p class="card-text">Price: $50</p>
+          <div id="timer1">00:00</div>
+          <button class="btn btn-primary bid-button" data-timer-id="timer1">Bid</button>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-success bid-success" style="display: none;">Successfully Bided</button>
+          <div>
+            <button class="btn btn-secondary unbid-button" style="display: none;">Unbid</button>
+            <button class="btn btn-secondary ok-button" style="display: none;">Submit</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="col-md-6">
-    <div class="card mb-4">
-      <div class="card-body">
-        <h5 class="card-title">Job Title 2</h5>
-        <p class="card-text">Job Description 2</p>
-        <p class="card-text">Price: $80</p>
-        <div id="timer2">00:00</div>
-        <button class="btn btn-primary bid-button">Bid</button>
-      </div>
-      <div class="card-footer d-flex justify-content-between">
-        <button class="btn btn-success bid-success" style="display: none;">Successfully Bided</button>
-        <div>
-          <button class="btn btn-secondary unbid-button" style="display: none;">Unbid</button>
-          <button class="btn btn-secondary ok-button" style="display: none;">Submit</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Code for other job cards -->
 
-  <div class="col-md-6">
-  <div class="card mb-4">
-    <div class="card-body">
-      <h5 class="card-title">Job Title 3</h5>
-      <p class="card-text">Job Description 3</p>
-      <p class="card-text">Price: $100</p>
-      <div id="timer3"></div>
-      <button class="btn btn-primary bid-button" data-timer-id="timer3">Bid</button>
-    </div>
-    <div class="card-footer d-flex justify-content-between">
-      <button class="btn btn-success bid-success" style="display: none;">Successfully Bided</button>
-      <div>
-        <button class="btn btn-secondary unbid-button" style="display: none;">Unbid</button>
-        <button class="btn btn-secondary ok-button" style="display: none;">Submit</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
+    <script>
   function setStorageItem(key, value) {
     localStorage.setItem(key, value);
   }
@@ -242,14 +221,7 @@
       duration: 60,
       element: document.getElementById('timer1')
     },
-    timer2: {
-      duration: 90,
-      element: document.getElementById('timer2')
-    },
-    timer3: {
-      duration: 120,
-      element: document.getElementById('timer3')
-    }
+    // Add other timer objects for timer2, timer3, and so on
   };
 
   var bidButtons = document.querySelectorAll('.bid-button');
@@ -297,8 +269,15 @@
         setStorageItem(timerId, startTime.toString());
       };
     });
+
+    // Retrieve the user's balance from the database and update the button's disabled attribute
+    var balance = <?php echo $currentBalance; ?>; // Replace with the actual variable holding the user's balance from the database
+    if (balance <= 0) {
+      button.disabled = true;
+    }
   });
 </script>
+
 
                 <!--<div class="col-md-6">
                   <div class="card mb-4">
