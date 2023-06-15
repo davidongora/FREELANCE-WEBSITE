@@ -1,15 +1,10 @@
 {
     "name": "davidongora/datetime-utils",
+    "description": "A short description of what your package does",
+    
     "require": {
       "php": "^8.1.4",
-      "some/package": "^1.0",
-      "myvendor/my-package-name": "1.0.0"
-    },
-    "repositories": [
-      {
-        "type": "vcs",
-        "url": "https://github.com/Davidongora/FREELANCE-WEBSITE.git"
-      }
-    ]
-  }
-  
+      "some/package": "^1.0"
+      
+    }
+}
