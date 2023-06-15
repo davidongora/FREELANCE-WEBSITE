@@ -188,17 +188,18 @@
             <div class="card">
     <div>
         <?php
-        // Database connection
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "freelance";
+        // // Database connection
+        // $servername = "localhost";
+        // $username = "root";
+        // $password = "";
+        // $dbname = "freelance";
 
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        // $conn = new mysqli($servername, $username, $password, $dbname);
+        // if ($conn->connect_error) {
+        //     die("Connection failed: " . $conn->connect_error);
+        // }
 
+        include("config.php");
         // Retrieve user details from the "members" table
         $user_id = 1; // Assuming the user ID is 1, you can change it dynamically based on the logged-in user
 

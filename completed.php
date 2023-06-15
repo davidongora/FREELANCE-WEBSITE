@@ -1,14 +1,15 @@
 <?php
+include("config.php");
 // Establish a database connection
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "freelance";
+// $hostname = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "freelance";
 
-$conn = mysqli_connect($hostname, $username, $password, $database);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+// $conn = mysqli_connect($hostname, $username, $password, $database);
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
 
 // Retrieve the number of jobs submitted by the user
 $userID = 1; // Replace 1 with the actual user ID

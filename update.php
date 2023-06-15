@@ -168,16 +168,18 @@
 
    <?php
 // Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "freelance";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "freelance";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+
+include("config.php");
 
 // Retrieve form data
 $user_id = 1; // Assuming the user ID is 1, you can change it dynamically based on the logged-in user

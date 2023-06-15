@@ -7,19 +7,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  // Database connection settings
-  $host = 'localhost'; // Replace with your database host
-  $username = 'root'; // Replace with your database username
-  $password_db = ''; // Replace with your database password
-  $database = 'freelance'; // Replace with your database name
+  // // Database connection settings
+  // $host = 'localhost'; // Replace with your database host
+  // $username = 'root'; // Replace with your database username
+  // $password_db = ''; // Replace with your database password
+  // $database = 'freelance'; // Replace with your database name
 
-  // Create a connection to the database
-  $conn = new mysqli($host, $username, $password_db, $database);
+  // // Create a connection to the database
+  // $conn = new mysqli($host, $username, $password_db, $database);
 
-  // Check if the connection was successful
-  if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
-  }
+  // // Check if the connection was successful
+  // if ($conn->connect_error) {
+  //   die('Connection failed: ' . $conn->connect_error);
+  // }
+
+include("config.php");
 
   // Prepare the SQL statement to retrieve user data
   $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
