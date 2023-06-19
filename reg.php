@@ -25,7 +25,8 @@ if (mysqli_query($connect, $sql)) {
 } else {
     // Check if the error message contains "Duplicate entry" indicating that the email is already registered
     if (strpos(mysqli_error($connect), "Duplicate entry") !== false) {
-        echo '<script>alert("Email is already registered!");</script>';
+        echo "<script>alert('Invalid email is already registered!! LOGIN!!');</script>";
+        // echo '<script>alert("Email is already registered!")</script>';
         echo '<script>window.location.href = "Reg.php";</script>';
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($connect);
