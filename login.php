@@ -38,7 +38,7 @@ include("config.php");
   } else {
     // Authentication failed
     echo "<script>alert('Invalid email or password');</script>";
-    echo "<script>window.location.href = 'login.php';</script>";
+    echo "<script>window.location.href = 'index.html';</script>";
     
     exit;
   }
