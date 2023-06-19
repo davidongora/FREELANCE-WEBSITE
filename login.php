@@ -25,7 +25,7 @@ include("config.php");
 
   // Prepare the SQL statement to retrieve user data
   $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-  $result = $conn->query($sql);
+  $result = $connect->query($sql);
 
   // Check if the query was successful and if a matching user was found
   if ($result && $result->num_rows === 1) {
@@ -33,7 +33,7 @@ include("config.php");
     $_SESSION['email'] = $email; // Store the email in the session
 
     // Redirect the user to the home page or any other desired page
-    header('Location: Dashboard.php');
+    header('Location:Dashboard.php');
     exit;
   } else {
     // Authentication failed
