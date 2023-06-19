@@ -256,16 +256,16 @@ mysqli_close($conn);
 
 
 <?php
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "freelance";
-
+// $hostname = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "freelance";
+include(config.php);
 // Create a database connection
-$conn = mysqli_connect($hostname, $username, $password, $database);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+// $conn = mysqli_connect($hostname, $username, $password, $database);
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
 
 // Retrieve the balance from the M-Pesa table
 $sql = "SELECT balance FROM mpesa";
@@ -478,12 +478,12 @@ mysqli_close($conn);
         </div>
     </div>
 
-    <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
+     <!-- =========== Scripts =========  -->
+   <script src="assets/js/main.js"></script>
 
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- ====== ionicons ======= -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
