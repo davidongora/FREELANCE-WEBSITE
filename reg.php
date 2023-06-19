@@ -21,7 +21,7 @@ $sql = "INSERT INTO users (username, email, password, balance) VALUES ('$name', 
 if (mysqli_query($conn, $sql)) {
     // Registration successful
     echo "Registration successful! \n you now need to login";
-    header('Location: index.html');
+    header('Location: dashboard.php');
 } else {
     // Check if the error message contains "Duplicate entry" indicating that the email is already registered
     if (strpos(mysqli_error($conn), "Duplicate entry") !== false) {
