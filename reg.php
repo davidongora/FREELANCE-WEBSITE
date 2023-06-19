@@ -18,17 +18,17 @@ $password = $_POST['password'];
 
 // Insert data into the database
 $sql = "INSERT INTO users (username, email, password, balance) VALUES ('$name', '$email', '$password', 0)";
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($connect, $sql)) {
     // Registration successful
     echo "Registration successful! \n you now need to login";
     header('Location: dashboard.php');
 } else {
     // Check if the error message contains "Duplicate entry" indicating that the email is already registered
-    if (strpos(mysqli_error($conn), "Duplicate entry") !== false) {
+    if (strpos(mysqli_error($connect), "Duplicate entry") !== false) {
         echo '<script>alert("Email is already registered!");</script>';
         echo '<script>window.location.href = "Reg.php";</script>';
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql . "<br>" . mysqli_error($connect);
         echo '<script>alert("An error occurred during registration.");</script>';
         echo '<script>window.location.href = "Reg.php";</script>';
     }
