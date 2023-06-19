@@ -43,7 +43,7 @@
                 </li>
 
                 <li>
-                    <a href="completed.php">
+                    <a href="#">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -135,8 +135,7 @@
                 </li>
             </ul>
         </div>
-
-       
+</div>
         <!-- ========================= Main ==================== -->
         <div class="main">
             <div class="topbar">
@@ -152,9 +151,27 @@
                 </div>
 
                 <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
+                    <a href="profile.php">
+                    <img src="assets/imgs/customer01.jpg" alt=""></a>
                 </div>
             </div>
+
+ <div class="container1">
+    <style>
+        .container1 {
+            max-width: 800px;
+            margin: 10px auto;
+            padding: 0 20px;
+          }
+      
+          h1, h2 {
+            margin-top: 30px;
+          }
+      
+          ol, ul {
+            margin-left: 20px;
+          }
+    </style>
 
             <!-- ======================= Cards ================== -->
             <div class="cardBox">
