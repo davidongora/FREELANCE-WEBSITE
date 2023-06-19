@@ -82,7 +82,7 @@
                 </li>
 
                 <li>
-                    <a href="submit.html">
+                    <a href="submit.php">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>

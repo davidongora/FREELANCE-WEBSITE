@@ -8,6 +8,7 @@
     <title>JOBS ZETU.KE</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
